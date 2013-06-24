@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+     <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/vendor/toastr/toastr.css" rel="stylesheet"/>
+    <link href="/vendor/toastr/toastr-responsive.css" rel="stylesheet"/>
+  </head>
+  <body>
+        <div class="container-narrow">
+        <div class="hero-unit">        
+        <input id="new-word" class="input-xlarge" type="text" placeholder="Nowe słowo...">
+        <a id="add-new-word" class="btn btn-large btn-success" href="#">Dodaj</a>
+    </div>
+    
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#red" data-toggle="tab">Lista słów</a></li>
+        
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="red">
+            <div id="words"></div>    
+        </div>
+    </div>             
+
+<!-- templates -->
+
+    <script id="wordTemplate" type="text/template">    
+        <div>
+            <@ if (language == "en") { @>
+                <img src="images/en.png" />
+                <@ } else { @>
+                <img src="images/pl.png" />
+            <@ } @>        
+            <@= text @>
+        </div>            
+    </script>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="/vendor/underscore-min.js"></script>
+  	<script type="text/javascript" src="/vendor/backbone-min.js"></script>
+    <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="/vendor/toastr/toastr.js"></script>
+
+    <script type="text/javascript" src="/javascripts/Word.js"></script>    
+    <script type="text/javascript" src="/javascripts/ListView.js"></script>
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+  </body>
+</html>
