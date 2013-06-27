@@ -26,3 +26,12 @@ exports.add = function(req, res) {
         collection.insert(word, {safe:true}, function(err, result) {});
     });
 };
+
+exports.del = function(req, res) {
+    //console.log(req.query);
+    db.collection('words', function(err, collection) {
+        collection.remove(req.query, {safe:true}, function(err, result) {
+            res.jsonp({result: result, error: err});
+        });
+    });    
+};

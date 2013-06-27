@@ -4,8 +4,6 @@ _.templateSettings = {
     escape: /\<\@\-(.+?)\@\>/gim
 };
 
-
-
 $('#add-new-word').click(function() {
     var word = new Word({
       text: $('#new-word').val(),
@@ -13,7 +11,7 @@ $('#add-new-word').click(function() {
     });        
 
     $.post("word", word.toJSON());
-    wordsView.render(word);
+    wordsView.add(word);
  
     toastr.success('Dodano nowe słowo.');
 });
