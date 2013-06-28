@@ -12,7 +12,7 @@ var WordItemView = Backbone.View.extend({
 var WordsView = Backbone.View.extend({
     el: $("#words"),
     events: {        
-        'click a': 'deleteWord'        
+        'click a': 'delete'        
         },
     initialize: function () {
         this.collection = new Words();        
@@ -36,7 +36,7 @@ var WordsView = Backbone.View.extend({
         this.$el.append(wordItemView.render().el);
     },
 
-    deleteWord: function(e) {        
+    delete: function(e) {        
         var word = $(e.srcElement).attr('data');
         var that = this;
         $.get('word?text=' + word, function(response) {        
